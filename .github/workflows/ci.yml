@@ -33,7 +33,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        service: [app, model, pow, observability/anvil-exporter]
+        service: [app, model]
     steps:
       - uses: actions/checkout@v4
 
@@ -55,8 +55,6 @@ jobs:
             port: 8080
           - service: model
             port: 8081
-          - service: pow
-            port: 8090
     steps:
       - uses: actions/checkout@v4
 
@@ -87,7 +85,7 @@ jobs:
       id-token: write # lets THIS job ask GitHub for an OIDC token
     strategy:
       matrix:
-        service: [app, model, pow]
+        service: [app, model]
     env:
       REGION: ${{ vars.GCP_REGION || 'us-central1' }}
       AR_REPO: ${{ vars.AR_REPOSITORY || 'infra-cloud-template' }}
