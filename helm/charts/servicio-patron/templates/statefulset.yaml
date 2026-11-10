@@ -22,6 +22,8 @@ spec:
       labels:
         app: {{ include "servicio-patron.fullname" . }}
     spec:
+      securityContext:
+        fsGroup: 1000
       containers:
         - name: servicio-patron
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"

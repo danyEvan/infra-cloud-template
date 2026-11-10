@@ -17,8 +17,8 @@ prometheus:
         cpu: 100m
         memory: 256Mi
       limits:
-        cpu: 500m
-        memory: 512Mi
+        cpu: 1000m
+        memory: 1024Mi
     # false = Prometheus picks up EVERY ServiceMonitor in any namespace,
     # whatever its labels. That is why servicemonitors.yaml needs no
     # `release:` label.
@@ -32,11 +32,17 @@ grafana:
   adminPassword: ""
   resources:
     requests:
-      cpu: 50m
-      memory: 128Mi
-    limits:
-      cpu: 200m
+      cpu: 100m
       memory: 256Mi
+    limits:
+      cpu: 1000m
+      memory: 1024Mi
+  readinessProbe:
+    timeoutSeconds: 5
+    failureThreshold: 10
+  livenessProbe:
+    timeoutSeconds: 5
+    failureThreshold: 10
   sidecar:
     # Loads observability/dashboards/*.json from ConfigMaps labeled
     # grafana_dashboard=1, in any namespace.

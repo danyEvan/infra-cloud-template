@@ -24,13 +24,13 @@ variable "subnetwork_id" {
 variable "machine_type" {
   description = "Cheap machine type for classroom nodes."
   type        = string
-  default     = "e2-small"
+  default     = "e2-standard-2"
 }
 
 variable "node_count" {
   description = "Initial node count in the pool."
   type        = number
-  default     = 1
+  default     = 2
 }
 
 variable "min_node_count" {

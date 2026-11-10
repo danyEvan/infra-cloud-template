@@ -74,7 +74,7 @@ module "gke" {
   environment    = "dev"
   network_id     = module.network.network_id
   subnetwork_id  = module.network.subnetwork_id
-  max_node_count = 2
+  max_node_count = 3
 }
 
 locals {
