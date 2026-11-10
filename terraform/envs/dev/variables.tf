@@ -35,7 +35,7 @@ variable "app_source_ranges" {
 variable "enable_artifact_registry" {
   description = "Create the Artifact Registry repository infra-cloud-template. ONE env per project creates it (dev by default); a second one would fail with 409 already exists."
   type        = bool
-  default     = true
+  default     = false
 }
 
 variable "enable_vm" {
